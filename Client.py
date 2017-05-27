@@ -1,0 +1,65 @@
+#the modules required
+import socket, sys
+
+
+#Prints help
+def display_help():
+    print '\nhelp :('
+
+#Asks the required inputs from user
+#This function is used if hostname and port number are not provided as command line arguments.
+#Returns the hostname and the port number given by the user.
+def set_host_and_port():
+    
+    #ask the necessary information politely from user (use a loop!) :) 
+    #if user reluctant: sys.exit(0)
+    #if user confused: display_help()
+    #if user done: break 
+    #if user clumsy or idiotic: print what went wrong and ask again
+
+    #OPTIONAL: ask if the user wants to use default values = the right values for this project
+
+    return host, port
+
+#Connects to the server using TCP protocol,
+#negotiates extra features and encryption keys
+#and receives the server's UDP port and an identity token
+#
+#Parameters: address = a tuple containing the values of host and port
+#[more parameters will be added later]
+#Returns the server's UDP port, identity token and encryption key
+def start_connection(address):
+    return port_udp_server, token, enc_key
+
+
+#This function is used for communication with the server.
+#First, this function initiates UDP messaging by sending the first message.
+#After the server has replied, this function replies with the same words in reverse order.
+#Next, a random number of messages and are received from the server.
+#And finally, a message which tells the exchange is finished, is received.
+#
+#Parameters: address = a tuple containing server IP address and UDP port
+#[parameters will be updated later]
+def talk_with_server(address):
+
+    #communicate
+    #end communication
+
+    #no need to return anything, possibly
+    
+
+def main():
+
+    #initialize hosts, ports, addresses, sockets etc.,
+    #whatever is needed before start_connection() is called
+
+    #next, start communicating with the server by calling talk_with_server()
+
+    #close all sockets etc.
+
+    print 'Everything worked as expected! Good bye!'
+
+
+#if and when this module is executed as the main program, start main().
+if __name__ == '__main__':
+    Main()
