@@ -50,12 +50,21 @@ def talk_with_server(address):
 
 def main():
 
-    #initialize hosts, ports, addresses, sockets etc.,
-    #whatever is needed before start_connection() is called
+    #shows the required sequence of information this program requires
+    USAGE = 'usage: %s <server address> <server port>' % sys.argv[0]
 
-    #next, start communicating with the server by calling talk_with_server()
+    #try to get the host and port from command line arguments
+    try:
+	    server_host = str(sys.argv[1])
+        server_tcpport = int(sys.argv[2])
+    except (IndexError, ValueError):
+        sys.exit(USAGE) #if something fails, show USAGE and exit
 
-    #close all sockets etc.
+    #create a tuple that contains host and port
+    address = (server_host, server_tcpport)
+
+
+    start_connection(address)
 
     print 'Everything worked as expected! Good bye!'
 
