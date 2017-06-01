@@ -30,6 +30,7 @@ def set_host_and_port():
 #Returns the server's UDP port, identity token and encryption key
 def start_connection(address):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(address)
     return port_udp_server, token, enc_key
 
 
