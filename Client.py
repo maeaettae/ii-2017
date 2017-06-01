@@ -32,6 +32,9 @@ def start_connection(address):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(address)
     s.sendall("HELLO")
+    data = s.recv(64)
+    print 'Received r\n', repr(data)
+    s.close()
     return port_udp_server, token, enc_key
 
 
