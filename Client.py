@@ -31,6 +31,7 @@ def set_host_and_port():
 def start_connection(address):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect(address)
+    s.sendall("HELLO")
     return port_udp_server, token, enc_key
 
 
