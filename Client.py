@@ -33,9 +33,18 @@ def start_connection(address):
     s.connect(address)
     s.sendall("HELLO")
     data = s.recv(64)
-    print 'Received r\n', repr(data)
     s.close()
-    #return port_udp_server, token, enc_key
+
+    print 'Received: \r\n', repr(data)
+
+    #remove '\r' and '\n' (the last 2 characters)
+    data = data[:-2]
+    #split the string to its substrings
+    data = data.split(" ")
+    #now data is contains something like ['HELLO', 'abcde' 12345']
+    
+    #return the identity token and UDP port
+    return data[1], data[2]
 
 
 #This function is used for communication with the server.
@@ -70,8 +79,8 @@ def main():
     #create a tuple that contains host and port
     address = (server_host, server_tcpport)
 
-
-    start_connection(address)
+    #get identity token and UDP port from the server
+    token, server_udpport = start_connection(address)
 
     print 'Everything worked as expected! Good bye!'
 
