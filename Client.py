@@ -77,4 +77,4 @@ def main():
 
 #if and when this module is executed as the main program, start main().
 if __name__ == '__main__':
-    Main()
+    main()
