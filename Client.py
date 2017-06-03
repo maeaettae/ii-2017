@@ -35,7 +35,7 @@ def start_connection(address):
     data = s.recv(64)
     print 'Received r\n', repr(data)
     s.close()
-    return port_udp_server, token, enc_key
+    #return port_udp_server, token, enc_key
 
 
 #This function is used for communication with the server.
@@ -48,6 +48,8 @@ def start_connection(address):
 #[parameters will be updated later]
 def talk_with_server(address):
 
+    return
+
     #communicate
     #end communication
 
@@ -55,13 +57,12 @@ def talk_with_server(address):
     
 
 def main():
-
     #shows the required sequence of information this program requires
     USAGE = 'usage: %s <server address> <server port>' % sys.argv[0]
 
     #try to get the host and port from command line arguments
     try:
-	    server_host = str(sys.argv[1])
+        server_host = str(sys.argv[1])
         server_tcpport = int(sys.argv[2])
     except (IndexError, ValueError):
         sys.exit(USAGE) #if something fails, show USAGE and exit
@@ -77,4 +78,4 @@ def main():
 
 #if and when this module is executed as the main program, start main().
 if __name__ == '__main__':
-    Main()
+    main()
